@@ -16,6 +16,19 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         
+                
+        if let dbUrl = Bundle.main.url(forResource: "ecalpon", withExtension: "db") {
+            
+            print("dbUrl = \(dbUrl)")
+            Globals.SharedInstance.databaseUrl = dbUrl
+            
+            let itemData = ItemData()
+            let _ = itemData.getAllItems()
+            
+        }
+        
+        
+        
         // Get label node from scene and store it for use later
         self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
         if let label = self.label {
