@@ -24,7 +24,8 @@ class GameScene: SKScene {
             
             let itemData = ItemData()
             let _ = itemData.getAllItems()
-            
+   
+         
         }
         
         
@@ -102,4 +103,27 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
     }
+    
+    
+    func sampleReturnType() -> [[String]]  {
+        
+        var valueMatrix = [[String]]()
+        
+        for i in 0...2 {
+            
+            var newRow = [String]()
+            
+            for j in 0...4 {
+                
+                newRow.append("\(i) and \(j)")
+                
+            }
+            
+            valueMatrix.append(newRow)
+        }
+        
+        return valueMatrix
+    }
+    
+    
 }

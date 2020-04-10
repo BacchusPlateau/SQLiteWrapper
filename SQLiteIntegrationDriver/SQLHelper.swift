@@ -30,7 +30,9 @@ class SQLHelper {
         return db
     }
     
-    func select(sqlCommand cmd: String) {
+    func select(sqlCommand cmd: String) -> [[String]] {
+        
+        var valueMatrix = [[String]]()
         
         if let db = openDatabase() {
             
@@ -39,11 +41,19 @@ class SQLHelper {
             if sqlite3_prepare_v2(db, cmd, -1, &queryStatement, nil) == SQLITE_OK {
                 
                 while (sqlite3_step(queryStatement) == SQLITE_ROW) {
-                    let id = sqlite3_column_int(queryStatement, 0)
-                    //let queryResultCol1 = sqlite3_column_text(queryStatement, 1)
-                    //let name = String(cString: queryResultCol1!)
-                    print("Query Result:")
-                    print("\(id)")
+                   
+                    let numberOfColumns = sqlite3_column_count(queryStatement)
+                    var row = [String]()
+                    
+                    for i in 0..<numberOfColumns {
+                                        
+                        let colRaw = sqlite3_column_text(queryStatement, i)
+                        let colString = String(cString: colRaw!)
+                        row.append(colString)
+                        
+                    }
+                                     
+                    valueMatrix.append(row)
                 }
                 
             } else {
@@ -54,9 +64,9 @@ class SQLHelper {
             sqlite3_close(db)
             
         }
+        
+        return valueMatrix
     }
     
-    
-    
-    
+        
 }
