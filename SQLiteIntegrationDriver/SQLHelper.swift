@@ -11,9 +11,9 @@ import SQLite3
 
 class SQLHelper {
     
-    var databasePath: URL
+    var databasePath: String
     
-    init(databasePath path: URL) {
+    init(databasePath path: String) {
         
         databasePath = path
         
@@ -22,7 +22,7 @@ class SQLHelper {
     func openDatabase() -> OpaquePointer? {
         
         var db: OpaquePointer? = nil
-        if sqlite3_open(databasePath.absoluteString, &db) == SQLITE_OK {
+        if sqlite3_open(databasePath, &db) == SQLITE_OK {
             print("Successfully opened connection to database at \(databasePath)")
         } else {
             print("Unable to open database.")
@@ -68,5 +68,41 @@ class SQLHelper {
         return valueMatrix
     }
     
+    func nonQuery(sqlCommand cmd: String) -> Bool {
         
+        var success : Bool = false
+        
+        if let db = openDatabase() {
+        
+            var nonQueryStatement: OpaquePointer? = nil
+            if sqlite3_prepare_v2(db, cmd, -1, &nonQueryStatement, nil) == SQLITE_OK {
+                if sqlite3_step(nonQueryStatement) == SQLITE_DONE {
+                    success = true
+                } else {
+                    print("Could not execute nonQuery statement.")
+                    if let errorPointer = sqlite3_errmsg(db) {
+                        let message = String.init(cString: errorPointer)
+                        print("Error message was " + message)
+                    }
+                }
+            } else {
+                print("nonQuery statement could not be prepared")
+                if let errorPointer = sqlite3_errmsg(db) {
+                    let message = String.init(cString: errorPointer)
+                    print("Error message was " + message)
+                }
+            }
+            sqlite3_finalize(nonQueryStatement)
+            
+        }
+        
+        return success
+        
+    }
 }
+
+
+
+
+
+

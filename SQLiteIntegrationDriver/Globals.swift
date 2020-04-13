@@ -10,7 +10,7 @@ import Foundation
 
 class Globals {
     
-    var databaseUrl: URL
+    var databaseUrl: String
     
     class var SharedInstance: Globals {
         struct Singleton {
@@ -22,7 +22,7 @@ class Globals {
     
     init() {
         
-        databaseUrl = URL(fileURLWithPath: "")
+        databaseUrl = ""
         
     }
     

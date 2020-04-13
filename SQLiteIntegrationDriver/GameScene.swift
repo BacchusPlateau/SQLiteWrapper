@@ -15,21 +15,35 @@ class GameScene: SKScene {
     private var spinnyNode : SKShapeNode?
     
     override func didMove(to view: SKView) {
-        
+
+        let home = FileManager.default.homeDirectoryForCurrentUser
                 
-        if let dbUrl = Bundle.main.url(forResource: "ecalpon", withExtension: "db") {
-            
-            print("dbUrl = \(dbUrl)")
-            Globals.SharedInstance.databaseUrl = dbUrl
-            
-            let itemData = ItemData()
-            let _ = itemData.getAllItems()
-   
-         
+        let dbUrl = home.appendingPathComponent("ecalpon").appendingPathExtension("db")
+        let dbAbsoluteString = dbUrl.path
+        
+        let fileManager = FileManager.default
+        if fileManager.fileExists(atPath: dbUrl.path) {
+            print("Exists")
+        } else {
+            print("Not exists")
         }
+                
+        Globals.SharedInstance.databaseUrl = dbAbsoluteString
+               
+        let itemData = ItemData()
+        let _ = itemData.getAllItems()
+
         
+        //example on adding
+        //let item = Item()
+        //item.id = 6
+        //item.name = "Vorpal''s Blade"
+        //
+        //itemData.addItem(itemToAdd: item)
         
-        
+        //let _ = itemData.getAllItems()
+      
+               
         // Get label node from scene and store it for use later
         self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
         if let label = self.label {
@@ -104,6 +118,7 @@ class GameScene: SKScene {
         // Called before each frame is rendered
     }
     
+    // MARK: Random test funcs
     
     func sampleReturnType() -> [[String]]  {
         

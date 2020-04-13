@@ -15,7 +15,6 @@
 		BA496A41243FBA4E00C42E70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA496A40243FBA4E00C42E70 /* Assets.xcassets */; };
 		BA496A44243FBA4E00C42E70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA496A42243FBA4E00C42E70 /* Main.storyboard */; };
 		BA496A4D243FBB9300C42E70 /* SQLHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA496A4C243FBB9300C42E70 /* SQLHelper.swift */; };
-		BA496A4F243FBD3400C42E70 /* ecalpon.db in Resources */ = {isa = PBXBuildFile; fileRef = BA496A4E243FBD3400C42E70 /* ecalpon.db */; };
 		BA496A51243FC13200C42E70 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA496A50243FC13200C42E70 /* ItemData.swift */; };
 		BA496A53243FC1A600C42E70 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA496A52243FC1A600C42E70 /* Globals.swift */; };
 		BA496A55243FC27500C42E70 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA496A54243FC27500C42E70 /* Item.swift */; };
@@ -33,7 +32,6 @@
 		BA496A45243FBA4E00C42E70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA496A46243FBA4E00C42E70 /* SQLiteIntegrationDriver.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SQLiteIntegrationDriver.entitlements; sourceTree = "<group>"; };
 		BA496A4C243FBB9300C42E70 /* SQLHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLHelper.swift; sourceTree = "<group>"; };
-		BA496A4E243FBD3400C42E70 /* ecalpon.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = ecalpon.db; sourceTree = "<group>"; };
 		BA496A50243FC13200C42E70 /* ItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
 		BA496A52243FC1A600C42E70 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		BA496A54243FC27500C42E70 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -74,7 +72,6 @@
 				BA496A3A243FBA4C00C42E70 /* Actions.sks */,
 				BA496A3C243FBA4C00C42E70 /* GameScene.swift */,
 				BA496A3E243FBA4C00C42E70 /* ViewController.swift */,
-				BA496A4E243FBD3400C42E70 /* ecalpon.db */,
 				BA496A40243FBA4E00C42E70 /* Assets.xcassets */,
 				BA496A42243FBA4E00C42E70 /* Main.storyboard */,
 				BA496A45243FBA4E00C42E70 /* Info.plist */,
@@ -146,7 +143,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA496A39243FBA4C00C42E70 /* GameScene.sks in Resources */,
-				BA496A4F243FBD3400C42E70 /* ecalpon.db in Resources */,
 				BA496A41243FBA4E00C42E70 /* Assets.xcassets in Resources */,
 				BA496A3B243FBA4C00C42E70 /* Actions.sks in Resources */,
 				BA496A44243FBA4E00C42E70 /* Main.storyboard in Resources */,
